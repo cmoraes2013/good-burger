@@ -4,8 +4,8 @@
       <div class="row">
     <div class="jumbotron">
     <h1>The Good Burger<h1>      
-    <p>Add a Burger to the list. Then devour it. <br> 
-    Enter a Burger of your choice to the list using the submit form below. The list on the left keeps track of what you devoured.</p>    
+    <p>Enter your favorite burger in the form below to add it to the virtual grill :P  <br> 
+    Then devour it when you are hungry!</p>    
         
     </center>
       <br>
@@ -22,7 +22,7 @@
 
           <!-- Burger Box -->
           <div class="form-group col-md-6">
-            <center><label for="new_burger" class="submitFont">Request a new burger!</label></center>
+            <center><label for="new_burger" class="submitFont">Enter your favorite burger here:</label></center>
             <textarea class="form-control" type="text" columns="6" rows="2" id="new_burger required value="" name="burger_name"></textarea>
           </div>
 
@@ -32,7 +32,7 @@
       
         <!-- Submit Button -->
         <center>
-          <button id="submit-button" type="submit" class="btn btn-danger">Make my Burger!</button>
+          <button id="submit-button" type="submit" class="btn btn-danger">Slap the patty on the grill and hear it SsSsSsSizzle!</button>
         </center>
 
       </form>
@@ -40,8 +40,6 @@
       <br>
 
     </div>
-
-
 
 
 
@@ -62,8 +60,10 @@
 			<h2>Burgers You Can Eat!</h2>
 
 			<ul>
+
+			 
 			
-			        <form action="--HANDLEBARS CODE HERE-- ?_method=PUT" method="POST">
+			        <form action="/{{this.id}}?_method=PUT" method="POST">
 			          <input type="hidden" name="devoured" value="true">
 			          <button class="btn-primary" type="submit">Devour It!</button>
 			        </form>
@@ -83,28 +83,5 @@
 
 
 	    </div>
-
   	</div>
-	
-
-	<div class="row">
-	    <div class="center col-sm-12">
-
-			<h2>Add A Burger!</h2>
-
-			<form class="create-update-form" action="/" method="POST">
-
-			  <div class="form-group">
-			    <p>Enter a burger you want to order and click the Submit Order button.</p>
-			    <input type="text" id="ca" name="burger_name">
-			  </div>
-			  
-			  <button class="btn-primary" type="submit">Submit Order</button>
-			</form>
-
-	    </div>
-	
-  	</div>
-	
-
 </div>

@@ -1,3 +1,6 @@
+//Connect Node to MYSQL
+var mysql = require("mysql");
+
 //Connecting MySQL Database to my server.
 var connection = mysql.createConnection({
   port: 3306,
@@ -17,4 +20,4 @@ connection.connect(function(err) {
 });
 
 // Export connection for our ORM to use.
-module.exports = connection
+module.exports = connection;

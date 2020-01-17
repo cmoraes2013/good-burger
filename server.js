@@ -1,21 +1,25 @@
 // Node Dependencies.
 const express = require("express");
 const exphbs = require("express-handlebars");
-const mysql = require("mysql");
+
 
 // Open Server and allows for deployment to Heroku.
 var PORT = process.env.PORT || 3000;
 var app = express();
+
+
+//Serve Static Content
+app.set(express.static("public"));
 
 //Set up the Express app to data parse.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-//Main page render.
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
+
+app.use(routes);
 
 // Handlebars.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

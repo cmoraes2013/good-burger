@@ -13,7 +13,7 @@
       <br><br>
 
       <!-- Form to Input Burger-->
-      <form action="create-burger" method="POST"> 
+      <form action="/" method="POST"> <!--THIS IS WHERE THE REROUTING IS HAPPENING!!!!>
         
         <!-- Text Area Input -->
         <div class="row">
@@ -59,29 +59,36 @@
 			<br>
 			<h2>Burgers You Can Eat!</h2>
 
-			<ul>
+			<ul style="list-style-type:none">
+      {{#each burger}}
+        {{#unless this.devoured}}
+          <li>
+            {{this.id}}. {{this.burger_name}}
 
-			 
-			
-			        <form action="/{{this.id}}?_method=PUT" method="POST">
-			          <input type="hidden" name="devoured" value="true">
-			          <button class="btn-primary" type="submit">Devour It!</button>
-			        </form>
-
-			      </li>
-			    --ENTER HANDLEBARS CODE HERE
-			</ul>
-
-	    </div>
-
-	    <div class="col-sm-6">
-
+            <form action="burger/updateOne/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="true">
+              <button type="submit" class="btn btn-default">EAT!</button>
+            </form>
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ul> 
+</div>
 			<h2>Burgers That Have Been Eaten!</h2>
 			
-		--ENTER HANDLEBARS CODE HERE--
+		 <ul style="list-style-type:none">
+      {{#each burger}}
+        {{#if this.devoured}}
+          <li>
+            {{this.id}}. {{this.burger_name}}
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
 
 
 
 	    </div>
   	</div>
 </div>
+
